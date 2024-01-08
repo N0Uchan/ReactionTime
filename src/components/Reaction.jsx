@@ -33,10 +33,11 @@ export default function Reaction() {
 
     function handleCat() {
         clearTimeout(timer.current);
-        clearInterval(interv.current);  
-        dialog.current.open();
+        clearInterval(interv.current); 
         setReactionStarted(false);
-        setTimerZero(false);
+        setTimerZero(false); 
+        dialog.current.open();
+        
     }
     function onReset() {
         setReactionTime(-1);
