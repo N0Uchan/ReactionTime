@@ -137,13 +137,21 @@ header p {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   
 }
 .reaction p img{
+  position: absolute;
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 6px;
+}
+.invisibleimg{
+  opacity: 0;
+}
+.visibleimg{
+  opacity: 1;
 }
 .challenge-time {
   border: 1px solid #46cebe;

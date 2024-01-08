@@ -22,7 +22,7 @@ const Result = forwardRef(function Result({time , onReset},ref) {
         <dialog ref={dialog} className="result-modal">
             <h2>Reaction time :{timeT}</h2>
             {msg.current}
-            <form method="dialog" onSubmit={onReset} >
+            <form method="dialog" onClose={onReset} >
                 <button method="dialog" >Close</button>
             </form>
         </dialog>
