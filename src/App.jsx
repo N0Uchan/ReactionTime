@@ -1,11 +1,11 @@
-import Player from './components/Player.jsx';
-import Reaction  from './components/Reaction.jsx';
+import Player from "./components/Player.jsx";
+import Reaction from "./components/Reaction.jsx";
 
 function App() {
   return (
     <>
       <Player />
-      <Reaction  />
+      <Reaction />
     </>
   );
 }
