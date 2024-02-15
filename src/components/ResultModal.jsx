@@ -1,5 +1,7 @@
 import { forwardRef, useImperativeHandle, useRef } from "react";
-const Result = forwardRef(function Result({ time, onReset }, ref) {
+import { postLeaderboard } from "./httpReq.js";
+
+const Result = forwardRef(function Result({ time, onReset, pname }, ref) {
   const dialog = useRef();
   const msg = useRef();
   useImperativeHandle(ref, () => {
@@ -23,6 +25,19 @@ const Result = forwardRef(function Result({ time, onReset }, ref) {
     msg.current = <p>Turtles can do better!!</p>;
   }
 
+  async function handleClick() {
+    if (time === -1) {
+      dialog.current.close();
+    } else {
+      try {
+        await postLeaderboard(pname, timeT);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    dialog.current.close();
+  }
+
   return (
     <dialog
       ref={dialog}
@@ -35,7 +50,12 @@ const Result = forwardRef(function Result({ time, onReset }, ref) {
         onClose={onReset}
         onSubmit={onReset}
       >
-        <button method='dialog'>Close</button>
+        <button
+          onClick={handleClick}
+          method='dialog'
+        >
+          Alright
+        </button>
       </form>
     </dialog>
   );
